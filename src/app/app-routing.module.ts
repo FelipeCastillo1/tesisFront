@@ -78,12 +78,6 @@ const routes: Routes = [
     data: { expectedRol: ['admin', 'trabajador'] },
   },
   {
-    path: 'tipoproducto',
-    component: TipoComponent,
-    canActivate: [ProdGuardService],
-    data: { expectedRol: ['admin', 'trabajador'] },
-  },
-  {
     path: 'ventaproducto',
     component: VentaComponent,
     canActivate: [ProdGuardService],
