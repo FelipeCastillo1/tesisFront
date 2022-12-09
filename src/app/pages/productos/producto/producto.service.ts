@@ -157,4 +157,31 @@ export class ProductoService {
   getProductoByTipoId(id: number): Observable<any> {
     return this.http.get(this.urlEndPoint + '/tipo/' + id);
   }
+
+  dameProducto(): Observable<Producto[]>{
+    return this.http.get<Producto[]>(this.urlEndPoint);
+  }
+
+  actualizaStock(producto: Producto): Observable<Producto>{
+    this.urlEndPoint=this.urlEndPoint+`stock/`;
+    return this.http.put<Producto>(`${this.urlEndPoint}`,producto,{
+      headers: this.httpHeaders,
+    })
+    .pipe(
+      catchError((e) => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(() => e);
+        }
+        if (e.status == 400) {
+          return throwError(() => e);
+        }
+        Swal.fire({
+          icon: 'error',
+          title: 'Algo ha salido mal',
+          text: e.error.mensaje,
+        });
+        return throwError(() => e);
+      })
+    );
+  }
 }
