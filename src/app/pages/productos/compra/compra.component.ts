@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../producto/producto';
 import { ProductoService } from '../producto/producto.service';
-import { Compra } from './compra';
 import { CompraService } from './compra.service';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
+import { Compra } from './compra';
 
 @Component({
   selector: 'app-compra',
