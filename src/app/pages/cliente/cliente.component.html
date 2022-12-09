@@ -1,4 +1,5 @@
 <app-header></app-header>
+<detalle-cliente *ngIf="clienteSeleccionado" [cliente]="clienteSeleccionado"></detalle-cliente>
 <div class="container-fluid" *ngIf="isAdmin">
 
   <div class="row">
@@ -43,7 +44,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of clientes">
-                <td>{{item.id}}</td>
+                <td><button type="button" (click)="abrirModal(item)" class="btn btn-block btn-success">{{item.id}}</button></td>
                 <td>{{item.nombre}}</td>
                 <td>{{item.apellido}}</td>
                 <td>{{item.telefono}}</td>

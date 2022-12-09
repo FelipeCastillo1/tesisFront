@@ -16,6 +16,7 @@ import { SendEmailComponent } from './pages/login/change-password/send-email/sen
 import { CambiarPasswordComponent } from './pages/login/change-password/cambiar-password/cambiar-password.component';
 import { LoginGuard } from './guards/login.guard';
 import { SubirFotoComponent } from './pages/productos/producto/subir-foto/subir-foto.component';
+import { DetalleComponent } from './pages/cliente/detalle/detalle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { TokenService } from '../login/token.service';
 import { Cliente } from './cliente';
 import { ClienteService } from './cliente.service';
+import { ModalService } from './detalle/modal.service';
 
 @Component({
   selector: 'app-cliente',
@@ -15,12 +16,14 @@ export class ClienteComponent implements OnInit {
   paginador: any;
   filterPost = '';
 
+  clienteSeleccionado:Cliente;
   roles: string[];
   isAdmin = false;
   constructor(
     private clienteService: ClienteService,
     private activatedRoute: ActivatedRoute,
-    private tokenService: TokenService
+    private tokenService: TokenService,
+    private modalService:ModalService
   ) {}
 
   ngOnInit(): void {
@@ -69,5 +72,9 @@ export class ClienteComponent implements OnInit {
         });
       }
     });
+  }
+  abrirModal(cliente:Cliente){
+    this.clienteSeleccionado = cliente;
+    this.modalService.abrirModal();
   }
 }
